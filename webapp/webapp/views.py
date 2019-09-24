@@ -1,7 +1,15 @@
-from django.http import HttpResponse, HttpResponseNotFound
+from django.shortcuts import render
 
 def HomeView( request ):
-    return HttpResponse( "Yeah, this is homepage!" )
+    context_dict = {
+        'title': "NST Homepage",
+        'content': "Yeah Baby, this is the homepage"
+    }
+    return render( request, 'homepage.html', context_dict )
 
 def ErrorPageView( request, exception ):
-    return HttpResponseNotFound( "What? There is nothing here!" )
+    context_dict = {
+        'title': "Error 404 | NST",
+        'content': "Umm, something went wrong. Are you sure this is the page you're looking for?"
+    }
+    return render( request, 'error_404.html', context_dict )
