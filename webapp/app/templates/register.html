@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block custom_title %}
+    {{ title }}
+{% endblock custom_title %}
+
+{% block site_content %}
+    <section id="signup" class="section">
+        <div class="container">
+            <div class="form-wrapper card mx-auto">
+                <div class="card-body">
+                    <h3 class="text-center primary-text-color">Welcome to NST</h3>
+                    <p class="text-center secondary-text-color">Create an account and start exploring Neural Style Transfer.</p>
+
+                    <form id="signup-form" method="post" action="">
+                        {% csrf_token %}
+
+                        <div class="form-group mb-0">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pl-0">
+                                    <i class="fa fa-user fa-fw"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="username" class="form-control username" placeholder="Enter Username" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-0">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pl-0">
+                                    <i class="fa fa-key fa-fw"></i>
+                                    </span>
+                                </div>
+                                <input type="password" name="password" class="form-control password" placeholder="Enter Password" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-0">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pl-0">
+                                    <i class="fa fa-key fa-fw"></i>
+                                    </span>
+                                </div>
+                                <input type="password" name="password" class="form-control re-password" placeholder="Re-enter Password" required>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-danger mt-4 d-none">
+                            <div class="alert-icon">
+                                <i class="fa fa-exclamation-triangle"></i>
+                            </div>
+                            <p class="mb-0 alert-text"></p>
+                        </div>
+
+                        {% if has_error %}
+                            <div class="alert alert-danger mt-4">
+                                <div class="alert-icon">
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                </div>
+                                <p class="mb-0">Something went wrong. Please try later.</p>
+                            </div>
+                            <div class="mt-1 mb-3 text-center">
+                        {% else %}
+                            <div class="mt-5 mb-3 text-center">
+                        {% endif %}
+                                <input type="button" value="Login" class="btn default-primary-color submit-btn" />
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock site_content %}

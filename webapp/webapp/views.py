@@ -1,11 +1,14 @@
 from django.shortcuts import render
+from app import views
 
-def HomeView( request ):
-    context_dict = {
-        'title': "NST Homepage",
-        'content': "Yeah Baby, this is the homepage"
-    }
-    return render( request, 'homepage.html', context_dict )
+class HomeView( views.NavbarView ):
+    def __init__( self ):
+        super().__init__()
+
+    def get( self, request ):
+        self.update_context( request )
+        self.context_dict['title'] = 'NST Homepage'
+        return render( request, 'homepage.html', self.context_dict )
 
 def ErrorPageView( request, exception ):
     context_dict = {
