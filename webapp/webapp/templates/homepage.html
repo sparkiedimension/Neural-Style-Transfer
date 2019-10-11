@@ -5,5 +5,34 @@
 {% endblock custom_title %}
 
 {% block site_content %}
-    {{ content }}
+    <section id="homepage" class="section">
+        <div class="container">
+            <h1 class="mt-5 mb-4 primary-text-color">
+                Neural Style Transfer
+            </h1>
+
+            <div class="row">
+                <div class="col col-12 col-lg-7">
+                    <h5 class="secondary-text-color">
+                        Based on AI methods called deep neural networks, neural style transfer 
+                        (called also deep neural style, or AI painting), enables anyone to 
+                        create astoundingly detailed and beautiful artwork from their photos. We 
+                        have optimized the rendering pipeline software to make it highly efficient
+                        and productive. The result is a service that can process style transfer 
+                        quickly, produces extremely detailed high resolution output, at minimal to zero cost.
+                    </h5>
+                </div>
+                <div class="col col-5 d-none d-lg-block"></div>
+            </div>
+
+            <div class="mt-4 mb-5">
+                <a class="btn default-primary-color mr-3" href="/app/dashboard/">
+                    Convert Your Images Now!
+                </a>
+                <a class="btn btn-secondary" href="/showcase/">
+                    Showcase
+                </a>
+            </div>
+        </div>
+    </section>
 {% endblock site_content %}
