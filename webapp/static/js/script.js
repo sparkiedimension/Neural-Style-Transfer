@@ -33,4 +33,48 @@ $(document).ready( function() {
             $('#signup-form').submit();
         }
     });
+    
+    
+    
+    $('.custom-file-input').change( function() {
+        let name = $(this).val();
+        name = name.replace(/.*[\/\\]/, '');
+    
+        $(this).siblings('.custom-file-label').text( name );
+    });
+    
+    
+    
+    $('#upload-img-modal .submit-btn').click( function() {
+        $('#upload-img-modal .alert').addClass('d-none');
+        
+        let message = "";
+        let text = $('#design-title').val();
+        
+        if( text.length < 1 ) {
+            message = "Design Title can't be empty!";
+        }
+        else {
+            text = $('#content-upload').val();
+            
+            if( !( text.length > 0 || $('#upload-content-img input[type=radio]:checked').length > 0 )) {
+                message = "Please upload the Content image.";
+            }
+            else {
+                text = $('#style-upload').val();
+            
+                if( !( text.length > 0 || $('#upload-style-img input[type=radio]:checked').length > 0 )) {
+                    message = "Please upload the Style image.";
+                }
+            }
+        }
+        
+        if( message.length > 0 ) {
+            $('#upload-img-modal .alert .alert-text').text(message);
+            $('#upload-img-modal .alert').removeClass('d-none');
+        }
+        else {
+            $('#upload-img-modal form.modal-body').submit();
+        }
+    });
 });

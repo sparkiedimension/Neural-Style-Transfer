@@ -83,7 +83,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <form class="modal-body mb-0" method="post" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <ul class="nav nav-pills nav-pills-primary" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#set-title" role="tablist" aria-expanded="false">
@@ -101,7 +102,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content tab-space">
+                    <div class="tab-content tab-space pb-1">
                         <div class="tab-pane active" id="set-title" aria-expanded="true">
                             <h5 class="secondary-text-color">What do you want your design to be called?</h5>
                             <div class="form-group">
@@ -111,48 +112,107 @@
                         </div>
                         <div class="tab-pane" id="upload-content-img" aria-expanded="false">
                             <div class="row">
-                                <div class="col col-6">
-                                    <div class="img-list">
-                                        <input type="radio" name='c-img' id="c-img-1"/>
+                                <div class="col col-12">
+                                    <div class="img-list light-primary-color">
+                                        <input type="radio" name='c-img' id="c-img-1" value="1"/>
                                         <label for="c-img-1">
-                                            <img class="w-100 img-item" src="/static/img/colloseum.jpg" alt=""/>
+                                            <img class="img-item" src="/static/img/colloseum.jpg" alt=""/>
                                         </label> 
                                         
-                                        <input type="radio" name='c-img' id="c-img-2"/>
+                                        <input type="radio" name='c-img' id="c-img-2" value="2"/>
                                         <label for="c-img-2">
-                                            <img class="w-100 img-item" src="/static/img/colloseum.jpg" alt=""/>
+                                            <img class="img-item" src="/static/img/colloseum.jpg" alt=""/>
                                         </label> 
                                         
-                                        <input type="radio" name='c-img' id="c-img-3"/>
+                                        <input type="radio" name='c-img' id="c-img-3" value="3"/>
                                         <label for="c-img-3">
-                                            <img class="w-100 img-item" src="/static/img/colloseum.jpg" alt=""/>
+                                            <img class="img-item" src="/static/img/colloseum.jpg" alt=""/>
                                         </label> 
                                         
-                                        <input type="radio" name='c-img' id="c-img-4"/>
+                                        <input type="radio" name='c-img' id="c-img-4" value="4"/>
                                         <label for="c-img-4">
-                                            <img class="w-100 img-item" src="/static/img/colloseum.jpg" alt=""/>
+                                            <img class="img-item" src="/static/img/colloseum.jpg" alt=""/>
                                         </label> 
                                     </div>
                                 </div>
-                                <div class="col col-2">
-                                    <div class="d-flex flex-row h-100">
+                                <div class="col col-12">
+                                    <div class="text-center my-2">
                                         <div class="align-self-center">OR</div>
                                     </div>
                                 </div>
-                                <div class="col col-4">
-                                    
+                                <div class="col col-12">
+                                    <div class="input-group file-upload-field">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Upload</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="content-upload" name="content-upload">
+                                            <label class="custom-file-label truncate" for="content-upload">
+                                                Choose file
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="tab-pane" id="upload-style-img" aria-expanded="false">
-                            Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas.
-                            <br><br>Dynamically innovate resource-leveling customer service for state of the art customer service.
+                            <div class="row">
+                                <div class="col col-12">
+                                    <div class="img-list light-primary-color">
+                                        <input type="radio" name='s-img' id="s-img-1"/>
+                                        <label for="s-img-1">
+                                            <img class="img-item" src="/static/img/rainPrincess.jpg" alt=""/>
+                                        </label> 
+                                        
+                                        <input type="radio" name='s-img' id="s-img-2"/>
+                                        <label for="s-img-2">
+                                            <img class="img-item" src="/static/img/rainPrincess.jpg" alt=""/>
+                                        </label> 
+                                        
+                                        <input type="radio" name='s-img' id="s-img-3"/>
+                                        <label for="s-img-3">
+                                            <img class="img-item" src="/static/img/rainPrincess.jpg" alt=""/>
+                                        </label> 
+                                        
+                                        <input type="radio" name='s-img' id="s-img-4"/>
+                                        <label for="s-img-4">
+                                            <img class="img-item" src="/static/img/rainPrincess.jpg" alt=""/>
+                                        </label> 
+                                    </div>
+                                </div>
+                                <div class="col col-12">
+                                    <div class="text-center my-2">
+                                        <div class="align-self-center">OR</div>
+                                    </div>
+                                </div>
+                                <div class="col col-12">
+                                    <div class="input-group file-upload-field">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Upload</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="style-upload" name="style-upload">
+                                            <label class="custom-file-label truncate" for="style-upload">
+                                                Choose file
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
                         </div>
                     </div>
+                </form>
+                
+                <div class="alert alert-danger d-none">
+                    <div class="alert-icon">
+                        <i class="fa fa-exclamation-triangle"></i>
+                    </div>
+                    <p class="mb-0 alert-text"></p>
                 </div>
+                
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary mr-3" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn default-primary-color">Upload Files</button>
+                    <button type="button" class="btn btn-secondary mr-3 close-btn" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn default-primary-color submit-btn">Upload Files</button>
                 </div>
             </div>
         </div>
