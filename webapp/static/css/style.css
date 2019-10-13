@@ -130,8 +130,7 @@ section.section {
 
 #dashboard .arena .card {
     margin: 0;
-    height: 100%;
-    min-height: 150px;
+    height: 155px;
 }
 
 #dashboard .arena .final {
